@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+*{
+    scrollbar-width: none;
+    box-sizing: border-box;
+}
+.links .active{
+    background-color: #e5e7eb ;
+}
+
