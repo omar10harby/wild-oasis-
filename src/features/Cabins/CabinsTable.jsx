@@ -1,6 +1,7 @@
 import { useSearchParams } from "react-router-dom";
 import CabinRow from "./CabinRow";
 import { useCabins } from "./useCabins";
+import CabinCard from "./CabinCard";
 
 function CabinsTable() {
   const { cabins, isLoading, error } = useCabins();
@@ -18,17 +19,18 @@ function CabinsTable() {
   }
 
   //sort
-  const sortby=searchParams.get('sortBy') || "startDate-asc"
-  const [field,direction]=sortby.split('-')
-  const modifer=direction==='asc'? 1 : -1 
-  const sortedCabins=filteredCabins?.sort((a,b)=> (a[field] - b[field]) * modifer)
+  const sortby = searchParams.get('sortBy') || "startDate-asc";
+  const [field, direction] = sortby.split('-');
+  const modifer = direction === 'asc' ? 1 : -1;
+  const sortedCabins = filteredCabins?.sort((a, b) => (a[field] - b[field]) * modifer);
+  
   if (isLoading) return <div>.....</div>;
   console.log(error);
 
   return (
     <div className="mt-10">
-      {/* ✅ نضيف هنا overflow-x-auto ونعزلها في div خاص */}
-      <div className="overflow-x-scroll border border-gray-200 rounded-md">
+      {/* Desktop Table View */}
+      <div className="hidden md:block overflow-x-auto border border-gray-200 rounded-md">
         <table className="min-w-[800px] w-full table-fixed">
           <thead className="bg-gray-200">
             <tr>
@@ -51,10 +53,17 @@ function CabinsTable() {
 
           <tbody>
             {sortedCabins?.map((cabin) => (
-              <CabinRow cabin={cabin} />
+              <CabinRow key={cabin.id} cabin={cabin} />
             ))}
           </tbody>
         </table>
+      </div>
+
+      {/* Mobile Cards View */}
+      <div className="md:hidden flex flex-col gap-4">
+        {sortedCabins?.map((cabin) => (
+          <CabinCard key={cabin.id} cabin={cabin} />
+        ))}
       </div>
     </div>
   );

@@ -10,7 +10,9 @@ function Filters({ fieldName, options }) {
   const currentFilter = searchParams.get(fieldName) || options[0].value;
   function handleClick(value) {
     searchParams.set(fieldName, value);
+    if(searchParams.get('page'))searchParams.set('page',1)
     setSearchParams(searchParams);
+
   }
   return (
     <>
