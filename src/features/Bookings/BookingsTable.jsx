@@ -5,11 +5,12 @@ import BookingRow from "./BookingRow";
 import Pagination from "../../ui/Pagination";
 import { PAGE_SIZE } from "../../utils/constants";
 import BookingCard from "./BookingCard";
+import Spinner from "../../ui/Spinner";
 
 function BookingsTable() {
   const { bookings, isLoading, count } = useBookings();
 
-  if (isLoading) return <p>loading ... </p>;
+  if (isLoading) return <Spinner/>;
   console.log(bookings);
 
   return (

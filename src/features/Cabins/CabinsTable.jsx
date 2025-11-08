@@ -2,6 +2,7 @@ import { useSearchParams } from "react-router-dom";
 import CabinRow from "./CabinRow";
 import { useCabins } from "./useCabins";
 import CabinCard from "./CabinCard";
+import Spinner from "../../ui/Spinner";
 
 function CabinsTable() {
   const { cabins, isLoading, error } = useCabins();
@@ -24,7 +25,7 @@ function CabinsTable() {
   const modifer = direction === 'asc' ? 1 : -1;
   const sortedCabins = filteredCabins?.sort((a, b) => (a[field] - b[field]) * modifer);
   
-  if (isLoading) return <div>.....</div>;
+  if (isLoading) return <Spinner/>;
   console.log(error);
 
   return (

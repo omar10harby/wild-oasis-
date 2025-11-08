@@ -7,6 +7,7 @@ import { useMoveBack } from "../../hooks/useMoveBack";
 import { HiArrowLeft, HiMiniArrowDownOnSquare } from "react-icons/hi2";
 import ConfirmPaymentBox from "./ConfirmPaymentBox";
 import { formatCurrency } from "../../utils/helpers";
+import Spinner from "../../ui/Spinner";
 
 function CheckInBooking() {
   const [isPaid, setIsPaid] = useState(false);
@@ -30,7 +31,7 @@ function CheckInBooking() {
     setIsPaid(booking?.isPaid);
   }, [booking]);
 
-if (isLoading || !settings) return null;
+if (isLoading || !settings) return <Spinner/>;
 
   const optionalBreakfastPrice = settings.breakfastPrice * numNights;
 

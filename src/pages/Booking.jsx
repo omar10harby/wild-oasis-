@@ -9,6 +9,7 @@ import { HiMiniArrowDownOnSquare, HiMiniArrowUpOnSquare } from "react-icons/hi2"
 import DropMenu from "../ui/DropMenu";
 import useDeleteBooking from "../features/Bookings/useDeleteBooking";
 import useCheckOut from "../features/check-in-out/useCheckOut";
+import Spinner from "../ui/Spinner";
 
 function Booking() {
   const { booking, isLoading } = useBooking();
@@ -19,7 +20,7 @@ function Booking() {
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  if (isLoading) return <p>loading...</p>;
+  if (isLoading) return <Spinner/>;
 
   const { id: bookingId } = booking;
 

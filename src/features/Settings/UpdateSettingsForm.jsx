@@ -2,6 +2,7 @@ import React from "react";
 import useSettings from "./useSettings";
 import { useForm } from "react-hook-form";
 import useUpdateSettings from "./useUpdateSettings";
+import Spinner from "../../ui/Spinner";
 
 function UpdateSettingsForm() {
   const { settings, error, isLoading } = useSettings();
@@ -11,7 +12,7 @@ function UpdateSettingsForm() {
     if (!value) return null;
     updateSetting({ [field]: value });
   }
-  if (isLoading) return <div>loding....</div>;
+  if (isLoading) return <Spinner/>;
   return (
     <form className="bg-white p-5 mt-10 rounded-md ">
       <div className="flex flex-col md:flex-row  gap-5 items-start md:items-center py-4 border-b border-gray-200 ">
