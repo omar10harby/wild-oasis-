@@ -22,7 +22,7 @@ function Stat({ icon, title, value, color }) {
           <p className="text-xs md:text-sm text-gray-500 uppercase tracking-wide font-medium mb-1">
             {title}
           </p>
-          <p className="text-2xl md:text-3xl font-bold text-gray-800">
+          <p className="text-xl md:text-2xl font-bold text-gray-800">
             {value}
           </p>
         </div>

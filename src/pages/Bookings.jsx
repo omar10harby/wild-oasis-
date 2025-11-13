@@ -6,7 +6,7 @@ function Bookings() {
   return (
     <div>
       <div className="flex justify-between items-center">
-        <h2 className="text-3xl font-bold text-gray-700">Bookings</h2>
+        <h2 className="text-2xl md:text-3xl font-bold text-gray-700">Bookings</h2>
         <BookingTableOperations />
       </div>
       <BookingsTable />

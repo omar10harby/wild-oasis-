@@ -9,7 +9,7 @@ function Login() {
           <div className="w-36 mb-3">
             <img src={logo} alt="logo" className="w-full" />
           </div>
-          <p className="text-3xl font-semibold">Log in to your account</p>
+          <p className="text-2xl md:text-3xl font-semibold">Log in to your account</p>
         </div>
         <div className="bg-gray-50 px-8 py-6">
           <LoginForm />
